@@ -8,6 +8,7 @@ You may also see any lint errors in the console.
 
 Technology Stack used in this project:
 1.React.js
+
 2.React Router: For client-side routing, enabling navigation between different pages (e.g., GamePage, WinPage, LosePage).
 3.CSS: For styling the application and creating responsive designs.
 4.Framer Motion: For adding animations to the user interactions, enhancing the user experience.
