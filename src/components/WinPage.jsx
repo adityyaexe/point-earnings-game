@@ -1,28 +1,19 @@
-// point-earnings-game/components/WinPage.jsx
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Confetti from 'react-confetti';
 
-const WinPage = ({ points, setPoints }) => {
+const WinPage = ({ points }) => {
   const navigate = useNavigate();
 
   // Automatically navigate back to the main page after 2 seconds
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      navigate('/'); // Navigate back to the main page
-    }, 2000);
-    return () => clearTimeout(timer); // Clear the timeout on component unmount
-  }, [navigate]);
-
-  // Call the function to add points when the Win page is displayed
-  useEffect(() => {
-    setPoints(prevPoints => prevPoints + 100); // Add points when displayed
-  }, [setPoints]);
+  setTimeout(() => {
+    navigate('/'); // Navigate back to the main page
+  }, 2000);
 
   return (
     <motion.div 
-      className="win-container" // Updated to use win-container for proper styling
+      className="win-container"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}

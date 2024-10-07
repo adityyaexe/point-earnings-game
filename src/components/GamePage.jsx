@@ -1,5 +1,5 @@
 // point-earnings-game/src/components/GamePage.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Scoreboard from './Scoreboard'; // Import the Scoreboard component
@@ -7,16 +7,30 @@ import './Scoreboard.css'; // Import the styles
 
 const GamePage = ({ points, setPoints }) => {
   const navigate = useNavigate();
+  const [isProcessing, setIsProcessing] = useState(false); // Flag to prevent multiple clicks
+  const [error, setError] = useState(''); // State for error message
 
   // Handle "Win" button click
   const handleWinClick = () => {
+    if (isProcessing) return; // Prevent multiple clicks
+    setIsProcessing(true); // Set flag to true
     setPoints(prevPoints => prevPoints + 100); // Using functional update for state consistency
     navigate('/win'); // Navigate to win page
   };
 
   // Handle "Lose" button click
   const handleLoseClick = () => {
-    setPoints(prevPoints => prevPoints - 50); // Using functional update for state consistency
+    if (isProcessing) return; // Prevent multiple clicks
+    setIsProcessing(true); // Set flag to true
+
+    if (points === 0) {
+      setError('Cannot deduct points below 0.'); // Set error message
+      setIsProcessing(false); // Reset processing flag
+      return; // Prevent further execution
+    }
+
+    // Deduct points and navigate to the Lose page
+    setPoints(prevPoints => Math.max(prevPoints - 50, 0)); // Ensure points do not go below 0
     navigate('/lose'); // Navigate to lose page
   };
 
@@ -38,6 +52,9 @@ const GamePage = ({ points, setPoints }) => {
       >
         Points: {points}
       </motion.h1>
+
+      {/* Display error message if applicable */}
+      {error && <p className="error-message">{error}</p>}
 
       {/* Win button with hover/tap effects */}
       <motion.button 

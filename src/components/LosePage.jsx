@@ -1,27 +1,21 @@
-import React, { useEffect, useCallback } from 'react';
+// point-earnings-game/src/components/LosePage.jsx
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Scoreboard from './Scoreboard'; // Import the Scoreboard component
 import './Scoreboard.css'; // Import the styles
 
-const LosePage = ({ points, setPoints }) => {
+const LosePage = ({ points }) => {
   const navigate = useNavigate();
 
-  // Use useCallback to memoize the function
-  const handlePointsDeduction = useCallback(() => {
-    setPoints((prevPoints) => Math.max(prevPoints - 50, 0)); // Ensure points don't go below 0
-  }, [setPoints]); // Include setPoints as a dependency
-
+  // Automatically navigate back to the main page after 2 seconds
   useEffect(() => {
-    handlePointsDeduction(); // Deduct points on mount
-
-    // Automatically navigate back to the main page after 2 seconds
     const timer = setTimeout(() => {
       navigate('/'); // Navigate back to the main page
     }, 2000);
 
-    return () => clearTimeout(timer); // Clear the timeout on component unmount
-  }, [handlePointsDeduction, navigate]); // Add handlePointsDeduction and navigate as dependencies
+    return () => clearTimeout(timer); // Clear timeout on unmount
+  }, [navigate]);
 
   return (
     <motion.div 
