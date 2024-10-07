@@ -1,0 +1,27 @@
+/* point-earnings-game/components/WinPage.css */
+
+.win-container { /* Updated class name */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #28a745; /* Green color for winning */
+    padding: 50px;
+    color: white; /* White text for visibility */
+}
+
+h1, h2 {
+    margin: 10px 0; /* Margin for spacing */
+}
+
+/* Confetti styles */
+canvas {
+    position: absolute; /* Full coverage for confetti */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Ensure it doesn't block clicks */
+}

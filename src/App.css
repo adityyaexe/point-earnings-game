@@ -1,38 +1,233 @@
-.App {
-  text-align: center;
+/* point-earnings-game/App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f4f8;
+  color: #343a40;
+  line-height: 1.6;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* App container for flex layout */
+.app-container {
+  position: relative; /* Allows absolute positioning of scoreboard */
+  min-height: 100vh; /* Ensures full height */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Scoreboard styling */
+.scoreboard {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.scoreboard h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.scoreboard p {
+  font-size: 20px;
+  color: yellow;
+}
+
+/* Common container styles for game and win/lose pages */
+.game-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  height: 100vh; /* Full viewport height */
+  text-align: center;
+  padding: 50px;
+  background-color: #282c34; /* Dark background for game container */
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* Shared button styles for consistency */
+button {
+  margin: 20px;
+  padding: 15px 30px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Win button styling */
+.win-btn {
+  background-color: #28a745;
+  color: white;
+}
+
+.win-btn:hover {
+  background-color: #218838;
+  opacity: 0.9;
+}
+
+/* Lose button styling */
+.lose-btn {
+  background-color: #dc3545;
+  color: white;
+}
+
+.lose-btn:hover {
+  background-color: #c82333;
+  opacity: 0.9;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+  .scoreboard {
+    top: 5px;
+    right: 10px;
+    padding: 15px;
   }
-  to {
-    transform: rotate(360deg);
+
+  .scoreboard h2 {
+    font-size: 22px;
   }
+
+  .scoreboard p {
+    font-size: 18px;
+  }
+
+  button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+
+/* NotFound specific styles */
+.notfound-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #282c34; /* Consistent with other pages */
+  color: white; /* White text for visibility */
+  text-align: center; /* Centered text */
+}
+
+.go-home-btn {
+  margin-top: 20px; /* Add some spacing above the button */
+  padding: 15px 30px; /* Consistent button padding */
+  font-size: 18px; /* Consistent font size */
+  border-radius: 5px; /* Rounded corners */
+  border: none; /* Remove default border */
+  cursor: pointer; /* Pointer cursor on hover */
+  background-color: #28a745; /* Consistent button color */
+  color: white; /* White text */
+  transition: background-color 0.3s ease; /* Smooth background change */
+}
+
+.go-home-btn:hover {
+  background-color: #218838; /* Darker shade on hover */
+}
+
+/* LosePage specific styles */
+.lose-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+}
+
+h1, h2 {
+  margin: 10px 0;
+}
+
+/* Optional: Style for when you want to show feedback after losing */
+h2 {
+  color: #dc3545; /* Use a color that indicates loss, like red */
+}
+
+/* Reset Button Styling */
+
+.reset-btn
+ {
+  
+position
+: absolute; 
+/* Positioning for the button */
+
+  
+bottom
+: 
+20px
+;
+  
+right
+: 
+20px
+;
+  
+padding
+: 
+10px
+ 
+20px
+;
+  
+font-size
+: 
+16px
+;
+  
+border-radius
+: 
+5px
+;
+  
+border
+: none;
+  
+cursor
+: pointer;
+  
+background-color
+: 
+#17a2b8
+; 
+/* Info color */
+
+  
+color
+: white; 
+/* White text */
+
+  
+transition
+: background-color 
+0.3s
+ ease; 
+/* Smooth background change */
+
+}
+
+.reset-btn
+:hover
+ {
+  
+background-color
+: 
+#138496
+; 
+/* Darker shade on hover */
+
 }

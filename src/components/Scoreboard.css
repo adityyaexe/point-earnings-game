@@ -1,0 +1,13 @@
+/* point-earnings-game/src/components/Scoreboard.css */
+
+.scoreboard {
+    background-color: #2c3e50; /* Dark background for contrast */
+    color: white; /* White text */
+    padding: 15px;
+    border-radius: 5px;
+    position: fixed; /* Fixed position for visibility */
+    top: 20px; /* Positioning from the top */
+    right: 20px; /* Positioning from the right */
+    z-index: 10; /* Ensures it's above other content */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Adds a shadow for depth */
+}
